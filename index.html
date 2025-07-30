@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jam Creative Suite</title>
+  <style>
+    body { background: #111; color: #eee; font-family: sans-serif; text-align: center; padding-top: 40px; }
+    input, button { padding: 10px; margin: 5px; font-size: 16px; }
+    #app, .tab { display: none; }
+    iframe { width: 90%; height: 500px; border: none; margin-top: 20px; }
+    nav button { margin: 10px; }
+  </style>
+</head>
+<body>
+  <h2>🔐 Enter Password</h2>
+  <input type="password" id="pass" placeholder="Enter password">
+  <button onclick="unlock()">Access</button>
+
+  <div id="app">
+    <h1>Welcome, Jam 👋</h1>
+    <nav>
+      <button onclick="showTab('photo')">📸 Photo</button>
+      <button onclick="showTab('video')">🎬 Video</button>
+      <button onclick="showTab('slides')">📝 Presentation</button>
+      <button onclick="showTab('stream')">📺 AniWatch</button>
+      <button onclick="showTab('chat')">💬 Chat</button>
+    </nav>
+
+    <div id="photo" class="tab">
+      <h2>Photo Editor</h2>
+      <iframe src="https://www.photopea.com"></iframe>
+    </div>
+    <div id="video" class="tab">
+      <h2>Video Editor</h2>
+      <iframe src="https://www.canva.com/video-editor/"></iframe>
+    </div>
+    <div id="slides" class="tab">
+      <h2>Presentation Builder</h2>
+      <iframe src="https://www.canva.com/presentations/"></iframe>
+    </div>
+    <div id="stream" class="tab">
+      <h2>Aniwatch Streaming</h2>
+      <iframe src="https://aniwatchtv.to"></iframe>
+    </div>
+    <div id="chat" class="tab">
+      <h2>Chat (Coming Soon)</h2>
+      <p>We’ll plug in real chat here next.</p>
+    </div>
+  </div>
+
+  <script>
+    function unlock() {
+      let input = document.getElementById('pass').value;
+      if (input === 'JoylenGonjoran080524') {
+        document.querySelector('h2').style.display = 'none';
+        document.getElementById('pass').style.display = 'none';
+        document.querySelector('button').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+      } else {
+        alert("Nope. You're not Jam.");
+      }
+    }
+
+    function showTab(id) {
+      document.querySelectorAll('.tab').forEach(tab => tab.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
